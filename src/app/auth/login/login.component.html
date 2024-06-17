@@ -1,0 +1,58 @@
+<div class="background-principal p-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="d-none d-md-block col-md-6">
+                <img class="img-fluid" src="assets/images/login/loginCDHU.jpg" alt="Logomarca GovBR">
+            </div>
+
+            <div class="col-md-6">
+                <div class="card w-100">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12 p-4">
+                                <h5 class="card-title mb-4">Login CDHU</h5>
+                                <h6 class="card-subtitle mb-4 mb-md-2 text-body-secondary">Informe seus dados:</h6>
+                                <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+                                    <div class="row m-0 mb-3">
+                                        <input required class="form-control" type="text" formControlName="cpf"
+                                            name="cpf" placeholder="CPF*" (input)="cpfValido($event)">
+                                    </div>
+                                    <div *ngIf="login.idPessoaCdhu">
+                                        <div class="row m-0 mb-3">
+                                            <input class="form-control" type="password" name="Senha"
+                                            formControlName="senha" placeholder="Senha*">
+
+                                            <input class="form-control" type="hidden" name="sistema"
+                                            formControlName="sistema" value= 402>
+                                        </div>
+                                    </div>
+                                    <div class="row mb-0">
+                                        <div class="d-flex flex-column flex-md-row justify-content-end gap-2">
+                                            <div *ngIf="!login.idPessoaCdhu">
+                                                <input class="btn btn-dark" type="button" value="continuar"
+                                                    id="btnSubmit" (click)="verificarCpf()">
+                                            </div>
+                                            <div *ngIf="login.idPessoaCdhu">
+                                                <button type="submit" class="btn btn-dark">
+                                                    Salvar
+                                                </button>
+                                            </div>
+                                            <a class="btn btn-outline-dark" asp-action="EsqueceuSenha"
+                                                *ngIf="login.idPessoaCdhu" > Esqueceu sua
+                                                senha?</a>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

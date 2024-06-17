@@ -1,0 +1,571 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://tempuri.org/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" name="SegUtilitarios" targetNamespace="http://tempuri.org/">
+<wsdl:types>
+<xsd:schema targetNamespace="http://tempuri.org/Imports">
+<xsd:import schemaLocation="http://appdev/WsSeguranca/SegUtilitarios.svc?xsd=xsd0" namespace="http://tempuri.org/"/>
+<xsd:import schemaLocation="http://appdev/WsSeguranca/SegUtilitarios.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+<xsd:import schemaLocation="http://appdev/WsSeguranca/SegUtilitarios.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/CDHU.Seguranca"/>
+<xsd:import schemaLocation="http://appdev/WsSeguranca/SegUtilitarios.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.Data.Objects.DataClasses"/>
+</xsd:schema>
+</wsdl:types>
+<wsdl:message name="ISegUtilitarios_AutenticarUsuario_InputMessage">
+<wsdl:part name="parameters" element="tns:AutenticarUsuario"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_AutenticarUsuario_OutputMessage">
+<wsdl:part name="parameters" element="tns:AutenticarUsuarioResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_AtualizarNovaSenha_InputMessage">
+<wsdl:part name="parameters" element="tns:AtualizarNovaSenha"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_AtualizarNovaSenha_OutputMessage">
+<wsdl:part name="parameters" element="tns:AtualizarNovaSenhaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ResetSenha_InputMessage">
+<wsdl:part name="parameters" element="tns:ResetSenha"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ResetSenha_OutputMessage">
+<wsdl:part name="parameters" element="tns:ResetSenhaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_PessoaTemEstePerfil_InputMessage">
+<wsdl:part name="parameters" element="tns:PessoaTemEstePerfil"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_PessoaTemEstePerfil_OutputMessage">
+<wsdl:part name="parameters" element="tns:PessoaTemEstePerfilResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionarPerfilPorPessoaSistema_InputMessage">
+<wsdl:part name="parameters" element="tns:SelecionarPerfilPorPessoaSistema"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionarPerfilPorPessoaSistema_OutputMessage">
+<wsdl:part name="parameters" element="tns:SelecionarPerfilPorPessoaSistemaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionarListaMunicipios_InputMessage">
+<wsdl:part name="parameters" element="tns:SelecionarListaMunicipios"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionarListaMunicipios_OutputMessage">
+<wsdl:part name="parameters" element="tns:SelecionarListaMunicipiosResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionarListaPrefeituras_InputMessage">
+<wsdl:part name="parameters" element="tns:SelecionarListaPrefeituras"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionarListaPrefeituras_OutputMessage">
+<wsdl:part name="parameters" element="tns:SelecionarListaPrefeiturasResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionaIdLocalidadeDaPrefeitura_InputMessage">
+<wsdl:part name="parameters" element="tns:SelecionaIdLocalidadeDaPrefeitura"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_SelecionaIdLocalidadeDaPrefeitura_OutputMessage">
+<wsdl:part name="parameters" element="tns:SelecionaIdLocalidadeDaPrefeituraResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaAcessoModulo_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaAcessoModulo"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaAcessoModulo_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaAcessoModuloResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaAcessoModuloTabela_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaAcessoModuloTabela"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaAcessoModuloTabela_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaAcessoModuloTabelaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroPessoa_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroPessoa"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroPessoa_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroPessoaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroEscritorioRegional_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroEscritorioRegional"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroEscritorioRegional_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroEscritorioRegionalResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaMedicaoPorFonteRecurso_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaMedicaoPorFonteRecurso"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaMedicaoPorFonteRecurso_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaMedicaoPorFonteRecursoResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaPerfilPorPessoaSistema_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaPerfilPorPessoaSistema"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaPerfilPorPessoaSistema_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaPerfilPorPessoaSistemaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ConsultaPessoa_InputMessage">
+<wsdl:part name="parameters" element="tns:ConsultaPessoa"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ConsultaPessoa_OutputMessage">
+<wsdl:part name="parameters" element="tns:ConsultaPessoaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_EsqueciSenha_InputMessage">
+<wsdl:part name="parameters" element="tns:EsqueciSenha"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_EsqueciSenha_OutputMessage">
+<wsdl:part name="parameters" element="tns:EsqueciSenhaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_EsqueciSenhaComValidacaoUsuario_InputMessage">
+<wsdl:part name="parameters" element="tns:EsqueciSenhaComValidacaoUsuario"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_EsqueciSenhaComValidacaoUsuario_OutputMessage">
+<wsdl:part name="parameters" element="tns:EsqueciSenhaComValidacaoUsuarioResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroPessoaPerfilCC_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroPessoaPerfilCC"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroPessoaPerfilCC_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroPessoaPerfilCCResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ExcluiFiltroPessoaPerfilCC_InputMessage">
+<wsdl:part name="parameters" element="tns:ExcluiFiltroPessoaPerfilCC"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ExcluiFiltroPessoaPerfilCC_OutputMessage">
+<wsdl:part name="parameters" element="tns:ExcluiFiltroPessoaPerfilCCResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_InsereFiltroPessoaPerfilCC_InputMessage">
+<wsdl:part name="parameters" element="tns:InsereFiltroPessoaPerfilCC"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_InsereFiltroPessoaPerfilCC_OutputMessage">
+<wsdl:part name="parameters" element="tns:InsereFiltroPessoaPerfilCCResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaCentrosCustoResponsavel_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaCentrosCustoResponsavel"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaCentrosCustoResponsavel_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaCentrosCustoResponsavelResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaDiretoriaUsuario_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaDiretoriaUsuario"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaDiretoriaUsuario_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaDiretoriaUsuarioResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaUsuariosDiretoria_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaUsuariosDiretoria"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaUsuariosDiretoria_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaUsuariosDiretoriaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroCentroCusto_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroCentroCusto"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaFiltroCentroCusto_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaFiltroCentroCustoResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaCentroCusto_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaCentroCusto"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaCentroCusto_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaCentroCustoResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaPermissoesUsuarioPerfil_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaPermissoesUsuarioPerfil"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaPermissoesUsuarioPerfil_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaPermissoesUsuarioPerfilResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_PerfisSistema_InputMessage">
+<wsdl:part name="parameters" element="tns:PerfisSistema"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_PerfisSistema_OutputMessage">
+<wsdl:part name="parameters" element="tns:PerfisSistemaResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaPermissoesUsuario_InputMessage">
+<wsdl:part name="parameters" element="tns:ListaPermissoesUsuario"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListaPermissoesUsuario_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListaPermissoesUsuarioResponse"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListarPessoaCDHUPorSistema_InputMessage">
+<wsdl:part name="parameters" element="tns:ListarPessoaCDHUPorSistema"/>
+</wsdl:message>
+<wsdl:message name="ISegUtilitarios_ListarPessoaCDHUPorSistema_OutputMessage">
+<wsdl:part name="parameters" element="tns:ListarPessoaCDHUPorSistemaResponse"/>
+</wsdl:message>
+<wsdl:portType name="ISegUtilitarios">
+<wsdl:operation name="AutenticarUsuario">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/AutenticarUsuario" message="tns:ISegUtilitarios_AutenticarUsuario_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/AutenticarUsuarioResponse" message="tns:ISegUtilitarios_AutenticarUsuario_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="AtualizarNovaSenha">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/AtualizarNovaSenha" message="tns:ISegUtilitarios_AtualizarNovaSenha_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/AtualizarNovaSenhaResponse" message="tns:ISegUtilitarios_AtualizarNovaSenha_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ResetSenha">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ResetSenha" message="tns:ISegUtilitarios_ResetSenha_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ResetSenhaResponse" message="tns:ISegUtilitarios_ResetSenha_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="PessoaTemEstePerfil">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/PessoaTemEstePerfil" message="tns:ISegUtilitarios_PessoaTemEstePerfil_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/PessoaTemEstePerfilResponse" message="tns:ISegUtilitarios_PessoaTemEstePerfil_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SelecionarPerfilPorPessoaSistema">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionarPerfilPorPessoaSistema" message="tns:ISegUtilitarios_SelecionarPerfilPorPessoaSistema_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionarPerfilPorPessoaSistemaResponse" message="tns:ISegUtilitarios_SelecionarPerfilPorPessoaSistema_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SelecionarListaMunicipios">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionarListaMunicipios" message="tns:ISegUtilitarios_SelecionarListaMunicipios_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionarListaMunicipiosResponse" message="tns:ISegUtilitarios_SelecionarListaMunicipios_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SelecionarListaPrefeituras">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionarListaPrefeituras" message="tns:ISegUtilitarios_SelecionarListaPrefeituras_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionarListaPrefeiturasResponse" message="tns:ISegUtilitarios_SelecionarListaPrefeituras_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="SelecionaIdLocalidadeDaPrefeitura">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionaIdLocalidadeDaPrefeitura" message="tns:ISegUtilitarios_SelecionaIdLocalidadeDaPrefeitura_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/SelecionaIdLocalidadeDaPrefeituraResponse" message="tns:ISegUtilitarios_SelecionaIdLocalidadeDaPrefeitura_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaAcessoModulo">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaAcessoModulo" message="tns:ISegUtilitarios_ListaAcessoModulo_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaAcessoModuloResponse" message="tns:ISegUtilitarios_ListaAcessoModulo_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaAcessoModuloTabela">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaAcessoModuloTabela" message="tns:ISegUtilitarios_ListaAcessoModuloTabela_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaAcessoModuloTabelaResponse" message="tns:ISegUtilitarios_ListaAcessoModuloTabela_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroPessoa">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroPessoa" message="tns:ISegUtilitarios_ListaFiltroPessoa_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroPessoaResponse" message="tns:ISegUtilitarios_ListaFiltroPessoa_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroEscritorioRegional">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroEscritorioRegional" message="tns:ISegUtilitarios_ListaFiltroEscritorioRegional_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroEscritorioRegionalResponse" message="tns:ISegUtilitarios_ListaFiltroEscritorioRegional_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaMedicaoPorFonteRecurso">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaMedicaoPorFonteRecurso" message="tns:ISegUtilitarios_ListaMedicaoPorFonteRecurso_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaMedicaoPorFonteRecursoResponse" message="tns:ISegUtilitarios_ListaMedicaoPorFonteRecurso_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaPerfilPorPessoaSistema">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaPerfilPorPessoaSistema" message="tns:ISegUtilitarios_ListaPerfilPorPessoaSistema_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaPerfilPorPessoaSistemaResponse" message="tns:ISegUtilitarios_ListaPerfilPorPessoaSistema_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ConsultaPessoa">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ConsultaPessoa" message="tns:ISegUtilitarios_ConsultaPessoa_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ConsultaPessoaResponse" message="tns:ISegUtilitarios_ConsultaPessoa_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="EsqueciSenha">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/EsqueciSenha" message="tns:ISegUtilitarios_EsqueciSenha_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/EsqueciSenhaResponse" message="tns:ISegUtilitarios_EsqueciSenha_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="EsqueciSenhaComValidacaoUsuario">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/EsqueciSenhaComValidacaoUsuario" message="tns:ISegUtilitarios_EsqueciSenhaComValidacaoUsuario_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/EsqueciSenhaComValidacaoUsuarioResponse" message="tns:ISegUtilitarios_EsqueciSenhaComValidacaoUsuario_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroPessoaPerfilCC">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroPessoaPerfilCC" message="tns:ISegUtilitarios_ListaFiltroPessoaPerfilCC_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroPessoaPerfilCCResponse" message="tns:ISegUtilitarios_ListaFiltroPessoaPerfilCC_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ExcluiFiltroPessoaPerfilCC">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ExcluiFiltroPessoaPerfilCC" message="tns:ISegUtilitarios_ExcluiFiltroPessoaPerfilCC_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ExcluiFiltroPessoaPerfilCCResponse" message="tns:ISegUtilitarios_ExcluiFiltroPessoaPerfilCC_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="InsereFiltroPessoaPerfilCC">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/InsereFiltroPessoaPerfilCC" message="tns:ISegUtilitarios_InsereFiltroPessoaPerfilCC_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/InsereFiltroPessoaPerfilCCResponse" message="tns:ISegUtilitarios_InsereFiltroPessoaPerfilCC_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaCentrosCustoResponsavel">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaCentrosCustoResponsavel" message="tns:ISegUtilitarios_ListaCentrosCustoResponsavel_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaCentrosCustoResponsavelResponse" message="tns:ISegUtilitarios_ListaCentrosCustoResponsavel_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaDiretoriaUsuario">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaDiretoriaUsuario" message="tns:ISegUtilitarios_ListaDiretoriaUsuario_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaDiretoriaUsuarioResponse" message="tns:ISegUtilitarios_ListaDiretoriaUsuario_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaUsuariosDiretoria">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaUsuariosDiretoria" message="tns:ISegUtilitarios_ListaUsuariosDiretoria_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaUsuariosDiretoriaResponse" message="tns:ISegUtilitarios_ListaUsuariosDiretoria_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroCentroCusto">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroCentroCusto" message="tns:ISegUtilitarios_ListaFiltroCentroCusto_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaFiltroCentroCustoResponse" message="tns:ISegUtilitarios_ListaFiltroCentroCusto_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaCentroCusto">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaCentroCusto" message="tns:ISegUtilitarios_ListaCentroCusto_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaCentroCustoResponse" message="tns:ISegUtilitarios_ListaCentroCusto_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaPermissoesUsuarioPerfil">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaPermissoesUsuarioPerfil" message="tns:ISegUtilitarios_ListaPermissoesUsuarioPerfil_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaPermissoesUsuarioPerfilResponse" message="tns:ISegUtilitarios_ListaPermissoesUsuarioPerfil_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="PerfisSistema">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/PerfisSistema" message="tns:ISegUtilitarios_PerfisSistema_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/PerfisSistemaResponse" message="tns:ISegUtilitarios_PerfisSistema_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListaPermissoesUsuario">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaPermissoesUsuario" message="tns:ISegUtilitarios_ListaPermissoesUsuario_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListaPermissoesUsuarioResponse" message="tns:ISegUtilitarios_ListaPermissoesUsuario_OutputMessage"/>
+</wsdl:operation>
+<wsdl:operation name="ListarPessoaCDHUPorSistema">
+<wsdl:input wsaw:Action="http://tempuri.org/ISegUtilitarios/ListarPessoaCDHUPorSistema" message="tns:ISegUtilitarios_ListarPessoaCDHUPorSistema_InputMessage"/>
+<wsdl:output wsaw:Action="http://tempuri.org/ISegUtilitarios/ListarPessoaCDHUPorSistemaResponse" message="tns:ISegUtilitarios_ListarPessoaCDHUPorSistema_OutputMessage"/>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="BasicHttpBinding_ISegUtilitarios" type="tns:ISegUtilitarios">
+<soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="AutenticarUsuario">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/AutenticarUsuario" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="AtualizarNovaSenha">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/AtualizarNovaSenha" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ResetSenha">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ResetSenha" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="PessoaTemEstePerfil">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/PessoaTemEstePerfil" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SelecionarPerfilPorPessoaSistema">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/SelecionarPerfilPorPessoaSistema" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SelecionarListaMunicipios">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/SelecionarListaMunicipios" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SelecionarListaPrefeituras">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/SelecionarListaPrefeituras" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="SelecionaIdLocalidadeDaPrefeitura">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/SelecionaIdLocalidadeDaPrefeitura" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaAcessoModulo">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaAcessoModulo" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaAcessoModuloTabela">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaAcessoModuloTabela" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroPessoa">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaFiltroPessoa" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroEscritorioRegional">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaFiltroEscritorioRegional" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaMedicaoPorFonteRecurso">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaMedicaoPorFonteRecurso" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaPerfilPorPessoaSistema">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaPerfilPorPessoaSistema" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ConsultaPessoa">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ConsultaPessoa" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EsqueciSenha">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/EsqueciSenha" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="EsqueciSenhaComValidacaoUsuario">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/EsqueciSenhaComValidacaoUsuario" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroPessoaPerfilCC">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaFiltroPessoaPerfilCC" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ExcluiFiltroPessoaPerfilCC">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ExcluiFiltroPessoaPerfilCC" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="InsereFiltroPessoaPerfilCC">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/InsereFiltroPessoaPerfilCC" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaCentrosCustoResponsavel">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaCentrosCustoResponsavel" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaDiretoriaUsuario">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaDiretoriaUsuario" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaUsuariosDiretoria">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaUsuariosDiretoria" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaFiltroCentroCusto">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaFiltroCentroCusto" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaCentroCusto">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaCentroCusto" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaPermissoesUsuarioPerfil">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaPermissoesUsuarioPerfil" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="PerfisSistema">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/PerfisSistema" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListaPermissoesUsuario">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListaPermissoesUsuario" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="ListarPessoaCDHUPorSistema">
+<soap:operation soapAction="http://tempuri.org/ISegUtilitarios/ListarPessoaCDHUPorSistema" style="document"/>
+<wsdl:input>
+<soap:body use="literal"/>
+</wsdl:input>
+<wsdl:output>
+<soap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="SegUtilitarios">
+<wsdl:port name="BasicHttpBinding_ISegUtilitarios" binding="tns:BasicHttpBinding_ISegUtilitarios">
+<soap:address location="http://appdev/WsSeguranca/SegUtilitarios.svc"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
